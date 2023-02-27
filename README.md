@@ -6,6 +6,7 @@ Create timelaps from IP camera's snapshots, get some weather info and post it on
 
 ```bash
 python 3.x
+pip3
 ```
 ## Installation
 
