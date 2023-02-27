@@ -3,4 +3,3 @@ ffmpeg_python==0.2.0
 python-dotenv==1.0.0
 PyVimeo==1.1.0
 requests
-vimeo==0.1.9
