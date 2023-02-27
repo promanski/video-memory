@@ -28,9 +28,7 @@ Make sure, that `script.py` is executable
 ```
 $ chmod +x /path/to/project/video-memory/script.py
 ```
-```
-Add `.env` file to root of your project with values:
-```
+
 ## Usage example
 | Argument | Description | Required | Default |
 |--|--|--|--|
