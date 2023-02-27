@@ -32,6 +32,6 @@ LOCATION_LONGITUDE  =  "10.00"
 Add script to crontab to execute every one minute with ``$ crontab -e``.
 Add following code (execute python code every 60 seconds)
 ```
- * * * * * /usr/bin/python /path/to/project/video-memory/script.py
+ * * * * * /usr/bin/python3 /path/to/project/video-memory/script.py
 ```
 At the end of a day, it will merge all snapshots into single video and post it on Vimeo.
