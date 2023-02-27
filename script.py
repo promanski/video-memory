@@ -33,7 +33,7 @@ else:
         # Save file
         with open(filepath, 'wb') as f:
             f.write(response.content)
-        print('Zapisałem plik ', filename)
+        print('File saved ', filename)
         # Wait 30s
     else:
         print('Error fetching snapshot.')
@@ -54,7 +54,7 @@ else:
             (
                 ffmpeg
                 .input(os.path.join(folder_path, '*.jpg'), pattern_type='glob', framerate=30)
-                .output(folder_path, pix_fmt='yuv420p', vcodec='libx265', s='1920x1080', preset='slow', crf=28)
+                .output(output_path, pix_fmt='yuv420p', vcodec='libx265', s='1920x1080', preset='slow', crf=28)
                 .run()
             )
             upload_video(output_path)
