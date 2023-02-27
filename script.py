@@ -17,7 +17,7 @@ parser.add_argument('--output', type=str, default='./data',
 args = parser.parse_args()
 if not os.path.exists(args.output):
     os.makedirs(args.output)
-
+else:
     now = datetime.datetime.now()
 
     response = requests.get(camera_snapshot_url, stream=True)
