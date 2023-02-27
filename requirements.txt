@@ -2,5 +2,5 @@ ffmpeg==1.4
 ffmpeg_python==0.2.0
 python-dotenv==1.0.0
 PyVimeo==1.1.0
-requests==2.28.2
+requests
 vimeo==0.1.9
