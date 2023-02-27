@@ -54,7 +54,7 @@ else:
             # ffmpeg, h.265 fullHD 30fps
             (
                 ffmpeg
-                .input(os.path.join(args.output_path, '*.jpg'), pattern_type='glob', framerate=30)
+                .input(os.path.join(output_path, '*.jpg'), pattern_type='glob', framerate=30)
                 .output(output_path, pix_fmt='yuv420p', vcodec='libx265', s='1920x1080', preset='slow', crf=28)
                 .run()
             )
