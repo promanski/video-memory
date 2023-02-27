@@ -10,7 +10,7 @@ python 3.x
 ## Installation
 
 ```py
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 Add `.env` file to root of your project with values:
 ```
