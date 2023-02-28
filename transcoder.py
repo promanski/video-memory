@@ -1,11 +1,17 @@
 import os
 import ffmpeg
 import datetime
+import argparse
+from upload import upload_video
 
 
-def merge_and_upload(output):
+def merge_and_upload():
+    parser = argparse.ArgumentParser(description='video-memory')
+    parser.add_argument('--output', type=str, default='./data',
+                        help='define snapshots output folder')
+    args = parser.parse_args()
     now = datetime.datetime.now()
-    folder_path = os.path.join(output, now.strftime('%d-%m-%Y'))
+    folder_path = os.path.join(args.output, now.strftime('%d-%m-%Y'))
     files = os.listdir(folder_path)
     files = [f for f in files if f.endswith('.jpg')]
     files.sort()
