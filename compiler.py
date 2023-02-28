@@ -27,7 +27,7 @@ if os.path.exists(folder_path):
         (
             ffmpeg
             .input(os.path.join(folder_path, '*.jpg'), pattern_type='glob', framerate=30)
-            .output(output_path, pix_fmt='yuv420p', vcodec='libx265', s='1920x1080', preset='slow', crf=28)
+            .output(output_path, pix_fmt='yuv420p', vcodec='libx265', s='1920x1080', preset='slow', crf=18)
             .run()
         )
     if args.upload:
