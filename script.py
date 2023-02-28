@@ -4,6 +4,7 @@ import requests
 import datetime
 import ffmpeg
 import argparse
+import subprocess
 from dotenv import load_dotenv
 from upload import upload_video
 
@@ -39,25 +40,7 @@ else:
         print('Error fetching snapshot.')
 
     # Merge photos
-    if now.hour == 23 and now.minute == 59 and now.second >= 0:
-        # Prepare args.output_path
+    if now.hour == 23 and now.minute >= 58 and now.second >= 0:
         folder_path = os.path.join(args.output, now.strftime('%d-%m-%Y'))
-        files = os.listdir(folder_path)
-        files = [f for f in files if f.endswith('.jpg')]
-        files.sort()
-
-        output_path = os.path.join(now.strftime('%d-%m-%Y') + '.mp4')
-        if os.path.exists(output_path):
-            print('File exists.')
-        else:
-            # ffmpeg, h.265 fullHD 30fps
-            (
-                ffmpeg
-                .input(os.path.join(folder_path, '*.jpg'), pattern_type='glob', framerate=30)
-                .output(output_path, pix_fmt='yuv420p', vcodec='libx265', s='1920x1080', preset='slow', crf=28)
-                .run()
-            )
-            upload_video(output_path)
-            # Delete remain photos
-            for f in files:
-                os.remove(os.path.join(folder_path, f))
+        subprocess.run(["python3", "compiler.py", '--source',
+                        folder_path,])
