@@ -43,4 +43,4 @@ else:
     if now.hour == 23 and now.minute >= 58 and now.second >= 0:
         folder_path = os.path.join(args.output, now.strftime('%d-%m-%Y'))
         subprocess.run(["python3", "compiler.py", '--source',
-                        folder_path, '--remove_snapshots'])
+                        folder_path])
