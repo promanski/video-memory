@@ -44,7 +44,6 @@ else:
             print(e)
             os.remove(os.path.join(args.output, now.strftime(
                 '%d-%m-%Y'), filename))
-        # Wait 30s
     else:
         print('Error fetching snapshot.')
 
