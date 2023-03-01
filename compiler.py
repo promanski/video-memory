@@ -4,13 +4,15 @@ import datetime
 import argparse
 from upload import upload_video
 
-parser = argparse.ArgumentParser(description='compiler')
-parser.add_argument('--source', type=str, default='./data',
-                    help='define snapshots folder')
-parser.add_argument('--remove_snapshots', action='store_true',
-                    help='remove snapshots after upload')
-parser.add_argument('--upload', action='store_true',
-                    help='upload to vimeo')
+parser = argparse.ArgumentParser(description='ffmpeg compiler, manage files')
+parser.add_argument('-s', '--source', type=str, default='./data',
+                    help='source snapshots folder')
+parser.add_argument('-u', '--upload', action='store_true',
+                    help='upload video to vimeo')
+parser.add_argument('-rs', '--remove_snapshots', action='store_true',
+                    help='remove snapshots after merge')
+parser.add_argument('-rv', '--remove_video', action='store_true',
+                    help='remove video after snapshots merge')
 args = parser.parse_args()
 now = datetime.datetime.now()
 folder_path = args.source
@@ -35,6 +37,8 @@ if os.path.exists(folder_path):
     if args.remove_snapshots:
         for f in files:
             os.remove(os.path.join(folder_path, f))
+    if args.remove_video:
+        os.remove(output_path)
 else:
     print('Folder does not exists')
     exit
