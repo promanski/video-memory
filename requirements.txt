@@ -1,6 +1,6 @@
 ffmpeg==1.4
 ffmpeg_python==0.2.0
-python-dotenv==1.0.0
+python-dotenv
 PyVimeo==1.1.0
 requests
-Pillow==9.4.0
+Pillow
