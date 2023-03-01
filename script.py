@@ -5,6 +5,7 @@ import datetime
 import ffmpeg
 import argparse
 import subprocess
+from PIL import Image
 from dotenv import load_dotenv
 from upload import upload_video
 
@@ -35,6 +36,14 @@ else:
         with open(filepath, 'wb') as f:
             f.write(response.content)
         print('File saved ', filename)
+        try:
+            img = Image.open(os.path.join(args.output, now.strftime(
+                '%d-%m-%Y'), filename))
+            img.verify()
+        except Exception as e:
+            print(e)
+            os.remove(os.path.join(args.output, now.strftime(
+                '%d-%m-%Y'), filename))
         # Wait 30s
     else:
         print('Error fetching snapshot.')
